@@ -28,7 +28,6 @@ async def analyze_document(file: UploadFile = File(...)) -> Any:
         if not extracted_text.strip():
             raise HTTPException(status_code=400, detail="Could not extract any text from the document.")
             
-        # Analyze the extracted text
         analysis_result = analyze_content(extracted_text)
         
         return {

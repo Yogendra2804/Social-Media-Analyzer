@@ -2,10 +2,6 @@ import google.generativeai as genai
 from core.config import settings
 
 def analyze_content(text: str) -> dict:
-    """
-    Analyzes the extracted social media content using Gemini.
-    Falls back to a deterministic heuristic if API key is missing or call fails.
-    """
     if settings.GEMINI_API_KEY:
         try:
             genai.configure(api_key=settings.GEMINI_API_KEY)
@@ -37,9 +33,6 @@ def analyze_content(text: str) -> dict:
         return fallback_analysis(text)
 
 def fallback_analysis(text: str) -> dict:
-    """
-    Deterministic heuristic-based analysis for when AI is unavailable.
-    """
     word_count = len(text.split())
     has_question = "?" in text
     has_exclamation = "!" in text

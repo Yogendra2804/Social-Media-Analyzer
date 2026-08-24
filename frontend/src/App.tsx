@@ -4,7 +4,6 @@ import { UploadCloud, FileText, FileImage, AlertCircle, Loader2, CheckCircle2 } 
 import ReactMarkdown from 'react-markdown';
 import axios from 'axios';
 
-// Get API URL from env or fallback to localhost
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:10000/api';
 
 function App() {
@@ -66,7 +65,6 @@ function App() {
     <div className="min-h-screen bg-slate-50 text-slate-900 p-4 md:p-8 font-sans">
       <div className="max-w-4xl mx-auto space-y-8">
         
-        {/* Header */}
         <header className="text-center space-y-2">
           <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900">
             Social Media Content Analyzer
@@ -77,10 +75,8 @@ function App() {
           </p>
         </header>
 
-        {/* Main Content Area */}
         <main className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8">
           
-          {/* Upload Zone */}
           {!result && !loading && (
             <div className="space-y-6">
               <div 
@@ -110,7 +106,6 @@ function App() {
                 </div>
               </div>
 
-              {/* Selected File Display */}
               {file && (
                 <div className="flex items-center justify-between p-4 bg-slate-50 rounded-lg border border-slate-200">
                   <div className="flex items-center space-x-3">
@@ -143,7 +138,6 @@ function App() {
             </div>
           )}
 
-          {/* Loading State */}
           {loading && (
             <div className="flex flex-col items-center justify-center py-12 space-y-4">
               <Loader2 className="w-10 h-10 text-indigo-600 animate-spin" />
@@ -154,7 +148,6 @@ function App() {
             </div>
           )}
 
-          {/* Error State */}
           {error && !loading && (
             <div className="mt-6 p-4 bg-red-50 border border-red-200 rounded-xl flex items-start space-x-3">
               <AlertCircle className="text-red-500 mt-0.5 flex-shrink-0" size={20} />
@@ -165,7 +158,6 @@ function App() {
             </div>
           )}
 
-          {/* Results State */}
           {result && !loading && (
             <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
               <div className="flex items-center justify-between border-b border-slate-100 pb-4">
@@ -183,7 +175,6 @@ function App() {
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 
-                {/* Extracted Text (Left Column) */}
                 <div className="md:col-span-1 space-y-3">
                   <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-500">
                     Extracted Text
@@ -193,7 +184,6 @@ function App() {
                   </div>
                 </div>
 
-                {/* AI Analysis (Right Column) */}
                 <div className="md:col-span-2 space-y-3">
                   <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-500 flex items-center justify-between">
                     <span>Engagement Analysis</span>
@@ -214,7 +204,6 @@ function App() {
 
         </main>
         
-        {/* Footer */}
         <footer className="text-center text-sm text-slate-500">
           Built for the Technical Assessment Project
         </footer>
